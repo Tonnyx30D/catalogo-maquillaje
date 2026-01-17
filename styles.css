@@ -1,42 +1,186 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #fff0f5;
-  color: #333;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo de Maquillaje</title>
 
-header {
-  background-color: #c71585;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-.productos {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
-}
+  <style>
+    /* Body y Tipografía */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #ffe6f0, #fff0e6);
+      color: #4a3c31;
+    }
 
-.producto {
-  background-color: white;
-  border-radius: 8px;
-  padding: 1rem;
-  width: 180px;
-  box-shadow: 0 0 8px rgba(199, 21, 133, 0.3);
-  text-align: center;
-}
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #d94f85, #c71585);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
 
-.producto img {
-  width: 100%;
-  border-radius: 8px;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #c71585;
-  color: white;
-  margin-top: 2rem;
-}
+    header p {
+      margin: 5px 0 0 0;
+      font-style: italic;
+      font-size: 1.2rem;
+    }
+
+    /* Contenedor de productos */
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    /* Tarjeta de producto */
+    .producto {
+      background: linear-gradient(145deg, #fff0f3, #ffe6ef);
+      border-radius: 15px;
+      padding: 1.5rem;
+      width: 200px;
+      box-shadow: 0 10px 20px rgba(199, 21, 133, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(199, 21, 133, 0.3);
+    }
+
+    /* Imagen del producto */
+    .producto img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .producto:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Nombre del producto */
+    .producto strong {
+      display: block;
+      margin: 10px 0 5px 0;
+      color: #d94f85;
+      font-size: 1.2rem;
+    }
+
+    /* Descripción del producto */
+    .producto p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* Botón de WhatsApp */
+    a.whatsapp {
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    a.whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Botones generales de contacto */
+    .contact-buttons {
+      text-align: center;
+      margin: 60px 0 40px 0;
+    }
+
+    .contact-buttons a {
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      margin: 5px;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-buttons a:hover {
+      transform: scale(1.05);
+    }
+
+    .instagram {
+      background-color: #E1306C;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #c71585, #d94f85);
+      color: white;
+      margin-top: 3rem;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenido a nuestro catálogo de maquillaje</h1>
+    <p>Descubre nuestros productos para resaltar tu belleza</p>
+  </header>
+
+  <div class="productos">
+
+    <div class="producto">
+      <img src="labial.jpg" alt="Labial Líquido Nude">
+      <strong>Labial Líquido Nude</strong>
+      <p>Acabado mate, color duradero y suave para todos los tonos de piel.</p>
+      <a href="https://wa.me/51935923064?text=Hola,%20quiero%20comprar%20el%20Labial%20Líquido%20Nude" class="whatsapp">Comprar por WhatsApp</a>
+    </div>
+
+    <div class="producto">
+      <img src="sombras.jpg" alt="Paleta de Sombras Brillantes">
+      <strong>Paleta de Sombras Brillantes</strong>
+      <p>12 tonos intensos para crear looks únicos, desde natural hasta glam.</p>
+      <a href="https://wa.me/51935923064?text=Hola,%20quiero%20comprar%20la%20Paleta%20de%20Sombras%20Brillantes" class="whatsapp">Comprar por WhatsApp</a>
+    </div>
+
+    <!-- Agrega más productos aquí -->
+  </div>
+
+  <div class="contact-buttons">
+    <a href="https://wa.me/51935923064" target="_blank" class="whatsapp">WhatsApp</a>
+    <a href="https://instagram.com/tu_usuario" target="_blank" class="instagram">Instagram</a>
+  </div>
+
+  <footer>
+    © 2026 Catálogo de Maquillaje. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
