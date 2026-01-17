@@ -82,6 +82,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       opacity: 0;
       transform: translateY(30px);
+      position: relative;
     }
 
     .producto.visible {
@@ -114,7 +115,7 @@
     .producto p {
       font-size: 0.95rem;
       line-height: 1.4;
-      margin: 0;
+      margin: 0 0 10px 0;
     }
 
     /* BOTÓN WHATSAPP */
@@ -204,7 +205,24 @@
     #carrito li {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin: 10px 0;
+    }
+
+    #carrito .cantidad {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    #carrito .eliminar {
+      background: #ff4d4d;
+      border: none;
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     #carrito .total {
@@ -230,6 +248,20 @@
     #carrito button:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* NOTIFICACIÓN AGREGADO */
+    #notificacion {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1000;
     }
 
     @media(max-width:480px){
@@ -285,13 +317,16 @@
   © 2026 Catálogo de Maquillaje. Todos los derechos reservados.
 </footer>
 
-<!-- Carrito flotante -->
+<!-- CARRITO FLOTANTE -->
 <div id="carrito">
   <h3>Tu carrito</h3>
   <ul></ul>
   <div class="total"></div>
   <button id="enviarWhatsApp">Enviar a WhatsApp</button>
 </div>
+
+<!-- NOTIFICACIÓN -->
+<div id="notificacion">Producto agregado</div>
 
 <script>
   const botonesCategoria = document.querySelectorAll('.categoria');
@@ -300,6 +335,7 @@
   const listaCarrito = carritoDiv.querySelector('ul');
   const totalDiv = carritoDiv.querySelector('.total');
   const enviarBtn = document.getElementById('enviarWhatsApp');
+  const notificacion = document.getElementById('notificacion');
 
   let carrito = [];
 
@@ -328,22 +364,46 @@
       const producto = btn.closest('.producto');
       const nombre = producto.dataset.nombre;
       const precio = parseFloat(producto.dataset.precio);
-      carrito.push({nombre, precio});
+
+      // Verificar si ya está en el carrito
+      const index = carrito.findIndex(item => item.nombre === nombre);
+      if(index > -1){
+        carrito[index].cantidad += 1;
+      } else {
+        carrito.push({nombre, precio, cantidad:1});
+      }
+
       actualizarCarrito();
+      mostrarNotificacion();
     });
   });
 
   function actualizarCarrito() {
     listaCarrito.innerHTML = '';
     let total = 0;
-    carrito.forEach(item => {
+    carrito.forEach((item, i) => {
       const li = document.createElement('li');
-      li.textContent = `${item.nombre} - S/ ${item.precio.toFixed(2)}`;
+      li.innerHTML = `<span class="cantidad">${item.cantidad}x</span> ${item.nombre} - S/ ${item.precio.toFixed(2)} 
+                      <button class="eliminar" data-index="${i}">&times;</button>`;
       listaCarrito.appendChild(li);
-      total += item.precio;
+      total += item.precio * item.cantidad;
     });
     totalDiv.textContent = `Total: S/ ${total.toFixed(2)}`;
     carritoDiv.style.display = carrito.length ? 'flex' : 'none';
+
+    // BOTONES ELIMINAR
+    document.querySelectorAll('#carrito .eliminar').forEach(btn => {
+      btn.addEventListener('click', () => {
+        carrito.splice(btn.dataset.index, 1);
+        actualizarCarrito();
+      });
+    });
+  }
+
+  // NOTIFICACIÓN AGREGADO
+  function mostrarNotificacion(){
+    notificacion.style.display = 'block';
+    setTimeout(()=>{notificacion.style.display='none'},1500);
   }
 
   // ENVIAR CARRITO A WHATSAPP
@@ -351,9 +411,9 @@
     if(carrito.length === 0) return;
     let mensaje = 'Hola, quiero comprar:\n';
     carrito.forEach(item => {
-      mensaje += `- ${item.nombre} (S/ ${item.precio.toFixed(2)})\n`;
+      mensaje += `- ${item.nombre} x${item.cantidad} (S/ ${item.precio.toFixed(2)})\n`;
     });
-    let total = carrito.reduce((acc, item) => acc + item.precio, 0);
+    let total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
     mensaje += `Total: S/ ${total.toFixed(2)}`;
     window.open(`https://wa.me/51935923064?text=${encodeURIComponent(mensaje)}`, '_blank');
   });
