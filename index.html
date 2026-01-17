@@ -92,7 +92,6 @@
   // FILTRO POR CATEGORÍA
   botonesCategoria.forEach(boton => {
     boton.addEventListener('click', () => {
-      // Quitar active de todos
       botonesCategoria.forEach(b => b.classList.remove('active'));
       boton.classList.add('active');
 
@@ -155,7 +154,6 @@
       document.getElementById('carrito-vacio').style.display = 'none';
     }
 
-    // BOTONES ELIMINAR
     document.querySelectorAll('#carrito .eliminar').forEach(btn => {
       btn.addEventListener('click', () => {
         carrito.splice(btn.dataset.index, 1);
@@ -164,13 +162,11 @@
     });
   }
 
-  // NOTIFICACIÓN
   function mostrarNotificacion(){
     notificacion.style.display = 'block';
     setTimeout(()=>{notificacion.style.display='none'},1500);
   }
 
-  // ENVIAR CARRITO A WHATSAPP
   enviarBtn.addEventListener('click', () => {
     if(carrito.length === 0) return;
     let mensaje = 'Hola, quiero comprar:\n';
