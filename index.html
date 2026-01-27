@@ -7,6 +7,115 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+
+    .categorias {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      gap: 10px;
+    }
+
+    .categoria {
+      padding: 10px 15px;
+      background-color: #eee;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .productos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 20px 40px;
+    }
+
+    .producto {
+      width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .producto:hover {
+      transform: scale(1.05);
+    }
+
+    .producto img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .contact-buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .contact-buttons a {
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      color: white;
+    }
+
+    .whatsapp { background-color: #25D366; }
+    .instagram { background-color: #E1306C; }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #f8f8f8;
+    }
+
+    #carrito {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ddd;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      border-radius: 5px;
+    }
+
+    #carrito ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px 0;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    #notificacion {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
@@ -24,10 +133,9 @@
 </div>
 
 <div class="productos">
-
-  <!-- LABIAL Meneito - NUEVO -->
+  <!-- Labial Meneito agregado -->
   <div class="producto labiales" data-nombre="Labial Líquido Meneito" data-precio="8.00">
-    <img src="img/labial-meneito-precio8.jpeg" alt="Labial Líquido Meneito" width="200">
+    <img src="img/labial - meneito.jpeg" alt="Labial Líquido Meneito" width="200">
     <strong>Labial Líquido Meneito</strong>
     <p>Acabado mate, color duradero y suave para todos los tonos de piel.</p>
     <a class="whatsapp">
@@ -36,25 +144,24 @@
     </a>
   </div>
 
-  <div class="producto labiales" data-nombre="Labial Líquido Nude" data-precio="25">
-    <img src="img/labial.jpg" alt="Labial Líquido Nude">
-    <strong>Labial Líquido Nude</strong>
-    <p>Acabado mate, color duradero y suave para todos los tonos de piel.</p>
-    <a class="whatsapp"><img src="img/whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
-  </div>
-
   <div class="producto sombras" data-nombre="Paleta de Sombras Brillantes" data-precio="40">
     <img src="img/sombras.jpg" alt="Paleta de Sombras Brillantes">
     <strong>Paleta de Sombras Brillantes</strong>
     <p>12 tonos intensos para crear looks únicos, desde natural hasta glam.</p>
-    <a class="whatsapp"><img src="img/whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
+    <a class="whatsapp">
+      <img src="img/whatsapp-icon.png" style="width:20px;margin-right:5px;">
+      Agregar al carrito
+    </a>
   </div>
 
   <div class="producto bases" data-nombre="Base Líquida Natural" data-precio="35">
     <img src="img/base.jpg" alt="Base Líquida Natural">
     <strong>Base Líquida Natural</strong>
     <p>Textura ligera que cubre imperfecciones y unifica el tono de piel.</p>
-    <a class="whatsapp"><img src="img/whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
+    <a class="whatsapp">
+      <img src="img/whatsapp-icon.png" style="width:20px;margin-right:5px;">
+      Agregar al carrito
+    </a>
   </div>
 </div>
 
