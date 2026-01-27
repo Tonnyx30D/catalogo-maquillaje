@@ -6,12 +6,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Lightbox CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,35 +24,33 @@
 </div>
 
 <div class="productos">
-  <div class="producto labiales" data-nombre="Labial Líquido Nude" data-precio="25">
-    <img src="labial.jpg" alt="Labial Líquido Nude">
-    <strong>Labial Líquido Nude</strong>
-    <p>Acabado mate, color duradero y suave para todos los tonos de piel.</p>
-    <a class="whatsapp"><img src="whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
-  </div>
-
-  <div class="producto sombras" data-nombre="Paleta de Sombras Brillantes" data-precio="40">
-    <img src="sombras.jpg" alt="Paleta de Sombras Brillantes">
-    <strong>Paleta de Sombras Brillantes</strong>
-    <p>12 tonos intensos para crear looks únicos, desde natural hasta glam.</p>
-    <a class="whatsapp"><img src="whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
-  </div>
-
-  <div class="producto bases" data-nombre="Base Líquida Natural" data-precio="35">
-    <img src="base.jpg" alt="Base Líquida Natural">
-    <strong>Base Líquida Natural</strong>
-    <p>Textura ligera que cubre imperfecciones y unifica el tono de piel.</p>
-    <a class="whatsapp"><img src="whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
-  </div>
-
-  <!-- Producto nuevo con imagen agrandable -->
+  <!-- Labial Meneito con enlace para ver imagen grande -->
   <div class="producto labiales" data-nombre="Labial Meneito" data-precio="8">
-    <a href="img/labial-meneito.jpeg" data-lightbox="producto" data-title="Labial Meneito - S/ 8.00">
-      <img src="img/labial-meneito.jpeg" alt="Labial Meneito" width="200">
+    <a href="img/labial - meneito.jpeg" target="_blank">
+      <img src="img/labial - meneito.jpeg" alt="Labial Meneito" width="200">
     </a>
     <strong>Labial Meneito</strong>
     <p>Labial efecto Velvet con alta pigmentación.</p>
-    <a class="whatsapp"><img src="whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
+    <a class="whatsapp"><img src="img/whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
+  </div>
+
+  <!-- Otros productos -->
+  <div class="producto sombras" data-nombre="Paleta de Sombras Brillantes" data-precio="40">
+    <a href="img/sombras.jpg" target="_blank">
+      <img src="img/sombras.jpg" alt="Paleta de Sombras Brillantes">
+    </a>
+    <strong>Paleta de Sombras Brillantes</strong>
+    <p>12 tonos intensos para crear looks únicos, desde natural hasta glam.</p>
+    <a class="whatsapp"><img src="img/whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
+  </div>
+
+  <div class="producto bases" data-nombre="Base Líquida Natural" data-precio="35">
+    <a href="img/base.jpg" target="_blank">
+      <img src="img/base.jpg" alt="Base Líquida Natural">
+    </a>
+    <strong>Base Líquida Natural</strong>
+    <p>Textura ligera que cubre imperfecciones y unifica el tono de piel.</p>
+    <a class="whatsapp"><img src="img/whatsapp-icon.png" style="width:20px;margin-right:5px;">Agregar al carrito</a>
   </div>
 </div>
 
@@ -81,9 +74,6 @@
 
 <!-- NOTIFICACIÓN -->
 <div id="notificacion">Producto agregado</div>
-
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
 <script>
   const botonesCategoria = document.querySelectorAll('.categoria');
